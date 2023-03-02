@@ -70,7 +70,7 @@ pipeline{
                     ], 
                         credentialsId: 'nexus-credentials', 
                         groupId: 'com.ustglobal', 
-                        nexusUrl: '13.126.219.99.8081', 
+                        nexusUrl: '13.126.219.99:8081', 
                         nexusVersion: 'nexus3', 
                         protocol: 'http', 
                         repository: 'march2ndhelloworld', 
