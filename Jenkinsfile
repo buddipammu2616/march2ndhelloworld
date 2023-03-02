@@ -58,5 +58,25 @@ pipeline{
                 }
             }
         }
+        stage('artifacts upload') {
+            steps {
+                script {
+                    nexusArtifactUploader artifacts: [
+                        [
+                            artifactId: 'buddipammu', 
+                            classifier: '', 
+                            file: 'target/buddipammu.war', 
+                            type: 'war']
+                    ], 
+                        credentialsId: 'nexus-credentials', 
+                        groupId: 'com.ustglobal', 
+                        nexusUrl: '13.126.219.99.8081', 
+                        nexusVersion: 'nexus3', 
+                        protocol: 'http', 
+                        repository: 'march2ndhelloworld', 
+                        version: '1.0.0'
+    }
+            }
+        }
     }
 }
