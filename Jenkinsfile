@@ -73,7 +73,7 @@ pipeline{
                         nexusUrl: '13.126.219.99:8081', 
                         nexusVersion: 'nexus3', 
                         protocol: 'http', 
-                        repository: 'march2ndhelloworld', 
+                        repository: 'helloworldapp-release', 
                         version: '1.0.0'
     }
             }
