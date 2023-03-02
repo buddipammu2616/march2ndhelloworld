@@ -61,6 +61,8 @@ pipeline{
         stage('artifacts upload') {
             steps {
                 script {
+                    def readpomversion = readMavenPom file: 'pom.xml'
+                    def nexusrepo = readpomversion.version.endsWith("SNAPSHOT") ? "helloworldapp-snapshot" : "helloworldapp-release"
                     nexusArtifactUploader artifacts: [
                         [
                             artifactId: 'buddipammu', 
@@ -73,8 +75,8 @@ pipeline{
                         nexusUrl: '13.126.219.89:8081', 
                         nexusVersion: 'nexus3', 
                         protocol: 'http', 
-                        repository: 'helloworldapp-release', 
-                        version: '1.0.0'
+                        repository: nexusrepo, 
+                        version: "${readpomversion.version}"
     }
             }
         }
